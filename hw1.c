@@ -46,10 +46,12 @@ int main(void){
   while(fgets(str1,NUM,fp) != NULL){
     strcpy(str2,str1);
     sort(str2);
+    i=0;
     j = 0;
-    for(i=0;i<strlen(str2);i++){
+    while(i<strlen(str2)){
       while(j < len){                     //j=lenで抜けたらその辞書の文字はない
 	if(str2[i] == str3[j]){
+	  i++;
 	  j++;
 	  break;
 	}                 
@@ -59,10 +61,12 @@ int main(void){
 	break;
       }
     }
-    if(i < strlen(str2)){
+    if(i >= strlen(str2)){
       flag =1;
-    }
+      break;
+      }
   }
+   
   
 
   if(flag)
