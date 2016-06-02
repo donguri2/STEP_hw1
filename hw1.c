@@ -48,28 +48,21 @@ int main(void){
     sort(str2);
     i = 0;
     j = 0;
-    while(i<strlen(str2)){
-      while(j < len){                     //j=lenで抜けたらその辞書の文字はない
-	if(str2[i] == str3[j]){
-	  i++;
-	  j++;
-	  break;                          //jのwhile文を抜ける
-	}                 
+    while(j < strlen(str3)){
+      if(str2[i] == str3[j]){
+	i++;
 	j++;
-      }
-      if(j >= len){
-	break;                             //iのwhile文を抜ける
+      }else
+	j++;
+      if(i >= strlen(str2)){
+	flag = 1;
+	break;
       }
     }
-    if(i>=strlen(str2)){
-      flag = 1;
+    if(flag)
       break;
-    }
   }
-
-   
   
-
   if(flag)
     printf("%s\n",str1);
   else
