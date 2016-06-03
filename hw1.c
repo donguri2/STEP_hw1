@@ -41,20 +41,22 @@ int main(void){
     exit(EXIT_FAILURE);
   }
   sort(str3);
-  
+
   //文字がないか調べる
   while(fgets(str1,NUM,fp) != NULL){
+    strtok(str1,"\n");
     strcpy(str2,str1);
     sort(str2);
     i = 0;
     j = 0;
-    while(j < strlen(str3)){
+    //printf("%s,%s",str2,str2);
+    while(j < len){
       if(str2[i] == str3[j]){
 	i++;
 	j++;
       }else
 	j++;
-      if(i >= strlen(str2)){
+      if(i >= strlen(str1)){
 	flag = 1;
 	break;
       }
@@ -66,7 +68,7 @@ int main(void){
   if(flag)
     printf("%s\n",str1);
   else
-    printf("見つかりません\n");   
+    printf("見つかりません.i=%d j=%d\n",i,j);   
   
   //ファイルクローズ
   fclose(fp);
